@@ -4,9 +4,14 @@ import requests
 import random
 
 def parser(url):
-#url = url +"?id=%d&p=1"  % (random.randint(1000000000,9999999999))
-#    url = name.replace('~', "/")
-    url = url +"?id=%d&p=1"  % (random.randint(1000000000,9999999999)) #URL с товаром
+    try:
+        url, p = url.split('?p')
+        p = '?p' + p
+    except:
+        url = url
+        p =''
+
+    url = url + p #URL с каталогом
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
     r = requests.get(url, headers=headers) #отправляем HTTP запрос и получаем результат
     soup = BeautifulSoup(r.text, features="lxml") #Отправляем полученную страницу в библиотеку для парсинга
@@ -44,4 +49,5 @@ def parser(url):
                                                     columns=['name', 'review']), ignore_index=True)
           except:
              a = 0
+
     return review

@@ -35,5 +35,6 @@ def model(url):
     filename = 'ml_model/dns.sav'
     xgboost = joblib.load(filename)
     result = xgboost.predict(features)
-    df['pred'] = result
+    df['review'] = result
+
     return df
