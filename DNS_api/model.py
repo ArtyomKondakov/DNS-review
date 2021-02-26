@@ -7,7 +7,7 @@ import pandas as pd
 
 def model(url):
     df = parser(url)
-    df = df[['review']].fillna('Нет отзывов')
+    df = df.fillna('Нет отзывов')
 
     df['review'] = df['review'].str[:100]
 
@@ -35,5 +35,5 @@ def model(url):
     filename = 'ml_model/dns.sav'
     xgboost = joblib.load(filename)
     result = xgboost.predict(features)
-
-    return result
+    df['pred'] = result
+    return df

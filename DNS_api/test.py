@@ -31,14 +31,14 @@ model_class, tokenizer_class, pretrained_weights = (ppb.DistilBertModel, ppb.Dis
 tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
 model = model_class.from_pretrained(pretrained_weights)
 
-"""import joblib
-filename = 'tokenizer.sav'
+import joblib
+filename = 'ml_model/tokenizer.sav'
 joblib.dump(tokenizer, filename)
 
 import joblib
-filename = 'model.sav'
+filename = 'ml_model/model.sav'
 joblib.dump(model, filename)
-"""
+
 
 tokenized = batch_1[0].apply((lambda x: tokenizer.encode(x, add_special_tokens=True)))
 max_len = 0
@@ -77,3 +77,4 @@ xgpreds = xgmodel.predict(test_features)
 import joblib
 filename = 'dns.sav'
 joblib.dump(xgmodel, filename)
+
