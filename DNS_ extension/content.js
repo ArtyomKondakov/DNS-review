@@ -10,8 +10,17 @@ let headers = new Headers();
 headers.append('Access-Control-Allow-Origin', 'https://127.0.0.1:5000/');
 headers.append('Access-Control-Allow-Credentials', 'true');
 
+function unicodeToChar (text) {
+    return text.replace(/\\u[\dA-F]{4}/gi,
+        function (match) {
+            return String.fromCharCode(
+                parseInt(match.replace(/\\u/g, ''), 16));
+        });
+}
+
 fetch('http://127.0.0.1:5000/' + dnsUrl, { headers: headers}).then(response => response.text())
         .then((response) => {
-            console.log(response.toString())
+            console.log(unicodeToChar(response.toString()))
         })
         .catch(err => console.log(err));
+

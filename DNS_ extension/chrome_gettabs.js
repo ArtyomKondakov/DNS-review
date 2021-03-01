@@ -10,3 +10,4 @@ chrome.tabs.onUpdated.addListener((tabId, change, tab) => {
         console.log("you are here: " + change.url);
     }
 });
+
