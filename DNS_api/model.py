@@ -2,7 +2,7 @@ import joblib
 from dns_parser import parser
 import numpy as np
 import torch
-
+import json
 import pandas as pd
 
 def model(url):
@@ -36,5 +36,8 @@ def model(url):
     xgboost = joblib.load(filename)
     result = xgboost.predict(features)
     df['review'] = result
+    df = df.to_json()#переводим в json
 
-    return df
+    return json.loads(df)
+
+
