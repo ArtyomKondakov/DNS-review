@@ -7,7 +7,6 @@ import pandas as pd
 
 def model(url):
     df = parser(url)
-    df = df.fillna('Нет отзывов')
 
     df['review'] = df['review'].str[:100]
 

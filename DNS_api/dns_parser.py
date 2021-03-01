@@ -48,6 +48,7 @@ def parser(url):
                 review = review.append(pd.DataFrame([[name, r]],
                                                     columns=['name', 'review']), ignore_index=True)
           except:
-             a = 0
+              review = review.append(pd.DataFrame([["NULL", "NULL"]],
+                                                  columns=['name', 'review']), ignore_index=True)
 
     return review

@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import jsonify
-from dns_parser import parser
 import base64
 from model import model
 app = Flask(__name__)
@@ -20,7 +19,6 @@ def hello(url=None):
     res = model(url)
 
     return jsonify(res)
-
 
 if __name__ == '__main__':
     app.run()
