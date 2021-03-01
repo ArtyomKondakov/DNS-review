@@ -20,7 +20,28 @@ function unicodeToChar (text) {
 
 fetch('http://127.0.0.1:5000/' + dnsUrl, { headers: headers}).then(response => response.text())
         .then((response) => {
-            console.log(unicodeToChar(response.toString()))
+
+            response = unicodeToChar(response.toString());
+            console.log(unicodeToChar(response.toString()));
+
+
+            var json = JSON.parse(response);
+
+            var product_stat = document.querySelectorAll('div.catalog-product');
+
+            product_stat.forEach(function(userItem, index, array) {
+
+                if (json.name[index] == "NULL") {
+                    userItem.innerHTML = userItem.innerHTML + " <h2>недостаточно отзывов</h2>";
+                    return;
+                }
+
+                userItem.innerHTML = userItem.innerHTML + " <h2>" + json.review[index] + "</h2>";
+                console.log(index + " | " + userItem.innerHTML + " | Name: " + json.name[index] + " Review: " + json.review[index]);
+            });
+
+
+
+
         })
         .catch(err => console.log(err));
-
