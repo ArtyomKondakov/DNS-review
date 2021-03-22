@@ -7,11 +7,7 @@
   "permissions": [
        "http://127.0.0.1:5000/*",
         "tabs"
-    ],
-    "background": {
-      "scripts": [ "chrome_gettabs.js" ]
-    }
-
+    ]
 },
   "content_scripts": [
    {
