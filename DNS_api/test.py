@@ -9,7 +9,7 @@ import seaborn as sns
 import transformers as ppb
 import warnings
 warnings.filterwarnings('ignore')
-df = pd.read_excel('..\main.xlsx')
+df = pd.read_excel('main.xlsx')
 df = df.dropna().drop_duplicates()
 df = df[['review','Unnamed: 2']]
 df = df.where(df.values != 'качественный това').dropna()
