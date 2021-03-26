@@ -21,15 +21,15 @@ def get_all_links(url):
 
     all_links = []
     for item in soup.find_all('a', {'class': 'catalog-product__rating ui-link ui-link_black'}):
-        g = item.get('href') + "?id=%d&p=1" % (random.randint(1000000000, 9999999999))
+        g = item.get('href')
         all_links.append(g)
     return all_links
 
 
 def make_all(link):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
-    url1 = "https://www.dns-shop.ru"
-    url2 = url1+link
+    #url1 = "https://www.dns-shop.ru"
+    url2 = link+ "?id=%d&p=1" % (random.randint(1000000000, 9999999999))
     r1 = requests.get(url2, headers=headers) #отправляем HTTP запрос и получаем результат
     soup1 = BeautifulSoup(r1.text) #Отправляем полученную страницу в библиотеку для парсинга
     r = ''
@@ -39,18 +39,18 @@ def make_all(link):
         for item in popular_text.find_all('p'):
             r = r+' '+ item.text
         name = soup1.find('a', {'class':'product-card-tabs__product-title ui-link ui-link_black'}).text
-        review = [name, r]
+        review = [name, r, link]
     except:
-        review =["NULL", "NULL"]
+        review =["NULL", "NULL", link]
     return review
 
 
-def parser(url):
-    all_links = get_all_links(url)
+def parser(all_links):
+#   all_links = get_all_links(url)
     pool = Pool(len(all_links))
     results = pool.map(make_all, all_links)
     results = pd.DataFrame(results)
-    results.rename({0:'name', 1:'review'}, axis=1, inplace=True)
+    results.rename({0:'name', 1:'review', 2:'url'}, axis=1, inplace=True)
     pool.close()
     return results
 

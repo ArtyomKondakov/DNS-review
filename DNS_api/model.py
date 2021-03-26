@@ -36,8 +36,7 @@ def model(url):
     xgboost = joblib.load(filename)
     result = xgboost.predict(features)
     df['review'] = result
-    df = df.to_json()#переводим в json
 
-    return json.loads(df)
+    return df
 
 
