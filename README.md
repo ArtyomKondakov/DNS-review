@@ -12,4 +12,5 @@ Deep Reviews - это расширение для браузера, которо
     <li>Запустите сервер DNS_apy/app.py </li>
   </ul>
 <h4> Пример работы расширения </h4>
-![](https://user-images.githubusercontent.com/63061620/112641041-0dce8480-8e53-11eb-8ab8-e3ae3f630952.gif)
+
+![1626dc32abd44365811ea7d4dc909c8c12_43_29 (1)](https://user-images.githubusercontent.com/63061620/112641141-25a60880-8e53-11eb-9afa-9291a0bc3334.gif)
