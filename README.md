@@ -14,3 +14,7 @@ Deep Reviews - это расширение для браузера, которо
 <h4> Пример работы расширения </h4>
 
 ![1626dc32abd44365811ea7d4dc909c8c12_43_29 (1)](https://user-images.githubusercontent.com/63061620/112641141-25a60880-8e53-11eb-9afa-9291a0bc3334.gif)
+
+
+
+![1626dc32abd44365811ea7d4dc909c8c12_43_29 (2)](https://user-images.githubusercontent.com/63061620/112642281-30ad6880-8e54-11eb-9e46-e3af1f74616a.gif)
