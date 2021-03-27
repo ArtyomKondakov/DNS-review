@@ -11,6 +11,7 @@ Deep Reviews - это расширение для браузера, которо
     <li>Запустите файл test.py</li>
     <li>Загрузите расширение DNS_ extension в Google Chrome</li>
     <li>Запустите сервер DNS_api/app.py </li>
+    <li>Запустить СORS Unblock</li>
   </ul>
 <h4> Пример работы расширения </h4>
 
